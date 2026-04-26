@@ -1,0 +1,112 @@
+# Configuration for Diabetic Retinopathy Screening System
+
+# Paths
+DATA_DIR: "data"
+DATASETS:
+  KAGGLE_2015: "data/kaggle_2015"
+  APTOS_2019: "data/aptos_2019"
+  EYEPACS: "data/eyepacs"
+  IDRID: "data/idrid"
+  MESSIDOR_2: "data/messidor_2"
+
+MODEL_DIR: "models"
+CHECKPOINT_DIR: "models/checkpoints"
+ONNX_DIR: "models/onnx"
+REPORTS_DIR: "reports"
+
+# Model Configuration
+MODEL:
+  BACKBONE: "efficientnet_b4"
+  NUM_CLASSES: 5
+  PRETRAINED: true
+  IMAGE_SIZE: 512
+  DROPOUT: 0.3
+
+# Training Configuration
+TRAINING:
+  EPOCHS: 50
+  BATCH_SIZE: 32
+  LEARNING_RATE: 1e-4
+  WEIGHT_DECAY: 1e-5
+  NUM_WORKERS: 4
+  PATIENCE: 10  # Early stopping patience
+  
+  # Loss Configuration
+  LOSS: "focal"  # Options: "focal", "weighted_ce"
+  FOCAL_ALPHA: 0.25
+  FOCAL_GAMMA: 2.0
+  
+  # Class weights (computed from dataset)
+  CLASS_WEIGHTS: [1.0, 3.5, 4.2, 5.8, 6.5]  # Will be auto-computed if null
+  
+  # Optimizer
+  OPTIMIZER: "adamw"
+  SCHEDULER: "cosine_annealing"
+  WARMUP_EPOCHS: 5
+  
+  # Mixed precision training
+  AMP: true
+
+# Augmentation Configuration
+AUGMENTATION:
+  TRAIN:
+    RANDOM_BRIGHTNESS: 0.2
+    RANDOM_CONTRAST: 0.2
+    CLAHE: true
+    HFLIP: 0.5
+    VFLIP: 0.5
+    ROTATE: 360
+    BLUR_PROB: 0.1
+    NOISE_PROB: 0.1
+  VAL:
+    CENTER_CROP: true
+
+# Metrics
+METRICS:
+  PRIMARY: "quadratic_kappa"
+  SECONDARY: ["accuracy", "f1_macro", "f1_per_class"]
+
+# Explainability
+GRADCAM:
+  METHOD: "GradCAM"
+  TARGET_LAYER: "features.9"  # EfficientNet-B4 last conv layer
+  UPSAMPLE: true
+
+# Mobile Optimization
+MOBILE:
+  MODEL_VARIANT: "efficientnet_b0"  # Lightweight variant
+  QUANTIZE: true
+  IMAGE_SIZE: 384
+
+# API Configuration
+API:
+  HOST: "0.0.0.0"
+  PORT: 8000
+  MAX_IMAGE_SIZE: 10485760  # 10MB
+  ALLOWED_EXTENSIONS: [".jpg", ".jpeg", ".png", ".bmp"]
+
+# Quality Assessment
+QUALITY_CHECK:
+  ENABLED: true
+  MIN_SHARPNESS: 100.0  # Laplacian variance threshold
+  MIN_BRIGHTNESS: 20
+  MAX_BRIGHTNESS: 230
+
+# Logging
+LOGGING:
+  WANDB_PROJECT: "diabetic-retinopathy-screening"
+  WANDB_ENTITY: null  # Set your W&B entity
+  LOG_INTERVAL: 50  # Log every N batches
+
+# PDF Report
+REPORT:
+  LOGO_PATH: "assets/logo.png"
+  CLINIC_NAME: "DR Screening Center"
+  FONT_SIZE: 12
+  INCLUDE_HEATMAP: true
+  MULTILINGUAL: false  # Set to true for local languages
+
+# Docker
+DOCKER:
+  BASE_IMAGE: "python:3.10-slim"
+  GPU_ENABLED: true
