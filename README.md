@@ -6,7 +6,7 @@ A production-grade, end-to-end AI-powered system for automated Diabetic Retinopa
 
 This system classifies retinal images into 5 DR severity levels:
 - **Grade 0**: No DR
-- **Grade 1**: Mild Non-Proliferative DR
+- **Grade 1**: Mild Non-Proliferative DR  
 - **Grade 2**: Moderate Non-Proliferative DR
 - **Grade 3**: Severe Non-Proliferative DR (⚠️ Requires Referral)
 - **Grade 4**: Proliferative DR (🚨 Urgent Referral)
