@@ -170,7 +170,7 @@ data/kaggle_2015/
 
 2. **APTOS 2019** (Validation)
 ```bash
-# Download from: https://www.kaggle.com/c/aptos2019-blindness-detection
+# Download from: https://www.kaggle.com/c/aptos2019-blindness-detection  
 ```
 
 3. **Messidor-2** (External Test)
