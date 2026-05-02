@@ -139,7 +139,7 @@ uvicorn src.api.main:app --host 0.0.0.0 --port 8000 --reload
 
 ```bash
 # Test with sample image
-curl -X POST "http://localhost:8000/predict" \
+curl -X POST "http://localhost:8000/predict" \  
   -F "file=@path/to/retinal_image.jpg"
 
 # Response:
