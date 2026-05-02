@@ -9,7 +9,7 @@ This system classifies retinal images into 5 DR severity levels:
 - **Grade 1**: Mild Non-Proliferative DR  
 - **Grade 2**: Moderate Non-Proliferative DR
 - **Grade 3**: Severe Non-Proliferative DR (⚠️ Requires Referral)
-- **Grade 4**: Proliferative DR (🚨 Urgent Referral)
+- **Grade 4**: Proliferative DR (🚨 Urgent Referral    
 
 ### Key Features
 
