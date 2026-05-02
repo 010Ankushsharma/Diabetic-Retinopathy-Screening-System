@@ -75,7 +75,7 @@ This system classifies retinal images into 5 DR severity levels:
 
 - Python 3.10+
 - CUDA 11.7+ (for GPU training)
-- Flutter SDK 3.0+ (for mobile app)
+- Flutter SDK 3.0+ (for mobile app)   
 - Docker & Docker Compose (for deployment)
 
 ### Backend Setup
