@@ -232,7 +232,7 @@ with open('config.yaml', 'r') as f:
     config = yaml.safe_load(f)
 
 # Initialize inference engine
-inference = DRInference(
+inference = DRInference(  
     model_path='models/checkpoints/best_model.ckpt',
     config=config
 )
