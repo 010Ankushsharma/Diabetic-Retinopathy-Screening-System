@@ -130,7 +130,7 @@ wget -O models/checkpoints/best_model.ckpt <model-url>
 ```bash
 # Start FastAPI server
 uvicorn src.api.main:app --host 0.0.0.0 --port 8000 --reload
-
+  
 # Server will be available at http://localhost:8000
 # Interactive API docs at http://localhost:8000/docs
 ```
