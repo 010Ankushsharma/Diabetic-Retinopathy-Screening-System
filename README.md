@@ -1,4 +1,4 @@
-# Diabetic Retinopathy Screening System
+# Diabetic Retinopathy Screening System   
 
 A production-grade, end-to-end AI-powered system for automated Diabetic Retinopathy (DR) detection from retinal fundus images. Designed for scalability, explainability, and deployment in low-resource rural settings.
 
